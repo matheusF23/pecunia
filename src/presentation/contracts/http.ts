@@ -5,9 +5,9 @@ export type HttpResponse<T = any> = {
 }
 
 export type HttpRequest<ReqBody = any, ReqQuery = any, ReqParam = any> = {
-  body: ReqBody
-  query: ReqQuery
-  params: ReqParam
+  body?: ReqBody
+  query?: ReqQuery
+  params?: ReqParam
 }
 
 export const serverError = (error: Error): HttpResponse => ({
