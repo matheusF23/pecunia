@@ -1,3 +1,3 @@
-import { User } from '@/domain/entity'
+import { User } from '../../domain/entity'
 
 export type UserModel = User
