@@ -4,10 +4,8 @@ export type HttpResponse<T = any> = {
   data: T
 }
 
-export type HttpRequest<ReqBody = any, ReqQuery = any, ReqParam = any> = {
-  body?: ReqBody
-  query?: ReqQuery
-  params?: ReqParam
+export type HttpRequest<T = any> = {
+  data: T
 }
 
 export const serverError = (error: Error): HttpResponse => ({

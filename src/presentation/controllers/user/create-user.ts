@@ -16,7 +16,7 @@ export class CreateUserController implements Controller {
   ): Promise<HttpResponse<MessageResponseViewModel>> {
     // TODO add validations
     try {
-      const { name, email, password } = req.body || {}
+      const { name, email, password } = req.data
 
       if (!name || !email || !password)
         throw new Error('name, email and password are required')
