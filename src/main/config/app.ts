@@ -1,4 +1,4 @@
-import { setupRoutes } from '../config/routes'
+import { setupRoutes } from './routes'
 
 import express from 'express'
 
