@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  postgresdb:
+    image: postgres:13.3-alpine
+    restart: always
+    tty: true
+    environment:
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASS
+      - POSTGRES_DB=$DB_NAME
+    ports:
+      - '5432:5432'
