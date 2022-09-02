@@ -2,26 +2,17 @@ import 'dotenv/config'
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 
-type DataBaseSettings = {
-  host: string | undefined
-  port: number | undefined
-  username: string | undefined
-  password: string | undefined
-  database: string | undefined
-}
+const port = process.env.DB_PORT as number | undefined
 
-export class PostgresDataSource {
-  constructor(private readonly databaseSettings: DataBaseSettings) {}
-  getDataSource() {
-    return new DataSource({
-      type: 'postgres',
-      host: this.databaseSettings.host,
-      port: this.databaseSettings.port,
-      username: this.databaseSettings.username,
-      password: this.databaseSettings.password,
-      database: this.databaseSettings.database,
-      entities: [`${__dirname}/**/entities/*.{ts, js}`],
-      migrations: [`${__dirname}/**/migrations/*.{ts, js}`],
-    })
-  }
-}
+const PostgresDataSource = new DataSource({
+  type: 'postgres',
+  host: process.env.DB_HOST,
+  port,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  entities: [`${__dirname}/**/entities/*.{ts, js}`],
+  migrations: [`${__dirname}/**/migrations/*.{ts, js}`],
+})
+
+export default PostgresDataSource
